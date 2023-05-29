@@ -8,7 +8,7 @@ try:
     import requests
     import datetime
     from concurrent.futures import ThreadPoolExecutor
-except ValueError:
+except ModuleNotFoundError:
     os.system("""
     pip install time
     pip install requests
