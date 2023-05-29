@@ -63,7 +63,7 @@ class main:
             "x-super-properties": "eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiRGlzY29yZCBDbGllbnQiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfdmVyc2lvbiI6IjEuMC45MDExIiwib3NfdmVyc2lvbiI6IjEwLjAuMTkwNDUiLCJvc19hcmNoIjoieDY0Iiwic3lzdGVtX2xvY2FsZSI6ImVuLVVTIiwiY2xpZW50X2J1aWxkX251bWJlciI6MTc5ODgyLCJuYXRpdmVfYnVpbGRfbnVtYmVyIjozMDMwNiwiY2xpZW50X2V2ZW50X3NvdXJjZSI6bnVsbCwiZGVzaWduX2lkIjowfQ=="
         }
 
-        def make_post(self):
+        def make_post(token, self):
             try:
                 data = {
                     "name": self.title,
@@ -97,7 +97,7 @@ class main:
         executor = ThreadPoolExecutor(max_workers=int(self.threads))
         for token in tokens:
             self.headers.update({"authorization": token})
-            executor.submit(make_post, self)
+            executor.submit(make_post, token, self)
 
 if __name__ == "__main__":
     main()
